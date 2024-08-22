@@ -1,6 +1,23 @@
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/nvchad/base46/"
 vim.g.mapleader = " "
 
+local path_package = vim.fn.stdpath "data" .. "/site"
+local mini_path = path_package .. "/pack/deps/start/mini.nvim"
+if not vim.loop.fs_stat(mini_path) then
+  vim.cmd 'echo "Installing `mini.nvim`" | redraw'
+  local clone_cmd = {
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "--branch",
+    "stable",
+    "https://github.com/echasnovski/mini.nvim",
+    mini_path,
+  }
+  vim.fn.system(clone_cmd)
+  vim.cmd "packadd mini.nvim | helptags ALL"
+end
+
 -- bootstrap lazy and all plugins
 local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
 
@@ -12,15 +29,6 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local lazy_config = require "configs.lazy"
-
-vim.api.nvim_create_user_command('NWMOpen', function(opts)
-  local url = opts.args
-  if url == '' then
-    -- If no URL is provided, try to get it from under the cursor
-    url = vim.fn.expand('<cfile>')
-  end
-  require('nwm').open(url)
-end, {nargs = '?'})
 
 -- load plugins
 require("lazy").setup({
