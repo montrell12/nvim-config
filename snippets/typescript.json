@@ -1,0 +1,44 @@
+{
+  "Fastify Simple Route": {
+    "prefix": "fastifyroute",
+    "body": [
+      "fastify.route({",
+      "  method: '${1|GET,POST,PUT,DELETE,PATCH|}',",
+      "  url: '/${2:endpoint}',",
+      "  handler: async (request, reply) => {",
+      "    $0",
+      "    return { success: true };",
+      "  },",
+      "});"
+    ],
+    "description": "Simple Fastify route definition"
+  },
+  "Fastify Routes File": {
+    "prefix": "fastifyroutes",
+    "body": [
+      "import { FastifyInstance } from 'fastify';",
+      "",
+      "export default async function routes(fastify: FastifyInstance) {",
+      "  fastify.get('/', async (request, reply) => {",
+      "    return { message: 'Hello World' };",
+      "  });",
+      "",
+      "  fastify.get('/${1:items}', async (request, reply) => {",
+      "    return { ${1:items}: [] };",
+      "  });",
+      "",
+      "  fastify.post('/${1:items}', async (request, reply) => {",
+      "    const body = request.body;",
+      "    $0",
+      "    return { success: true };",
+      "  });",
+      "",
+      "  fastify.get('/${1:items}/:id', async (request, reply) => {",
+      "    const { id } = request.params as { id: string };",
+      "    return { id };",
+      "  });",
+      "}"
+    ],
+    "description": "Fastify routes file with instance and template routes"
+  }
+}

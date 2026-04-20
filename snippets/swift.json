@@ -1,0 +1,596 @@
+{
+  "SwiftUI View Container": {
+    "prefix": "viewcontainer",
+    "body": [
+      "import SwiftUI",
+      "",
+      "struct ${1:ContainerName}View: View {",
+      "    var body: some View {",
+      "        ${2:VStack} {",
+      "            $0",
+      "        }",
+      "    }",
+      "}",
+      "",
+      "#Preview {",
+      "    ${1:ContainerName}View()",
+      "}"
+    ],
+    "description": "SwiftUI View container template with import and preview"
+  },
+  "SwiftUI View": {
+    "prefix": "swiftview",
+    "body": [
+      "struct ${1:ViewName}: View {",
+      "    var body: some View {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Basic SwiftUI View struct"
+  },
+  "SwiftUI State": {
+    "prefix": "state",
+    "body": "@State private var ${1:name}: ${2:Type} = ${3:value}",
+    "description": "@State property wrapper"
+  },
+  "SwiftUI Binding": {
+    "prefix": "binding",
+    "body": "@Binding var ${1:name}: ${2:Type}",
+    "description": "@Binding property wrapper"
+  },
+  "SwiftUI StateObject": {
+    "prefix": "stateobj",
+    "body": "@StateObject private var ${1:viewModel} = ${2:ViewModel}()",
+    "description": "@StateObject property wrapper"
+  },
+  "SwiftUI ObservedObject": {
+    "prefix": "observed",
+    "body": "@ObservedObject var ${1:viewModel}: ${2:ViewModel}",
+    "description": "@ObservedObject property wrapper"
+  },
+  "SwiftUI EnvironmentObject": {
+    "prefix": "envobj",
+    "body": "@EnvironmentObject var ${1:name}: ${2:Type}",
+    "description": "@EnvironmentObject property wrapper"
+  },
+  "SwiftUI Environment": {
+    "prefix": "env",
+    "body": "@Environment(\\.${1:keyPath}) var ${2:name}",
+    "description": "@Environment property wrapper"
+  },
+  "SwiftUI Published": {
+    "prefix": "published",
+    "body": "@Published var ${1:name}: ${2:Type} = ${3:value}",
+    "description": "@Published property wrapper"
+  },
+  "SwiftUI AppStorage": {
+    "prefix": "appstorage",
+    "body": "@AppStorage(\"${1:key}\") var ${2:name}: ${3:Type} = ${4:defaultValue}",
+    "description": "@AppStorage property wrapper"
+  },
+  "ObservableObject ViewModel": {
+    "prefix": "viewmodel",
+    "body": [
+      "class ${1:Name}ViewModel: ObservableObject {",
+      "    @Published var ${2:property}: ${3:Type} = ${4:value}",
+      "    ",
+      "    init() {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "ObservableObject ViewModel class"
+  },
+  "Observable Class": {
+    "prefix": "observable",
+    "body": [
+      "@Observable",
+      "class ${1:Name} {",
+      "    var ${2:property}: ${3:Type} = ${4:value}",
+      "    ",
+      "    init() {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Swift 5.9 @Observable class"
+  },
+  "VStack": {
+    "prefix": "vstack",
+    "body": [
+      "VStack(${1:alignment: .leading, spacing: 8}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "VStack container"
+  },
+  "HStack": {
+    "prefix": "hstack",
+    "body": [
+      "HStack(${1:alignment: .center, spacing: 8}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "HStack container"
+  },
+  "ZStack": {
+    "prefix": "zstack",
+    "body": [
+      "ZStack(${1:alignment: .center}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "ZStack container"
+  },
+  "LazyVStack": {
+    "prefix": "lazyvstack",
+    "body": [
+      "LazyVStack(${1:alignment: .leading, spacing: 8}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "LazyVStack container"
+  },
+  "LazyHStack": {
+    "prefix": "lazyhstack",
+    "body": [
+      "LazyHStack(${1:alignment: .center, spacing: 8}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "LazyHStack container"
+  },
+  "ScrollView": {
+    "prefix": "scrollview",
+    "body": [
+      "ScrollView(${1:.vertical, showsIndicators: false}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "ScrollView container"
+  },
+  "List": {
+    "prefix": "list",
+    "body": [
+      "List {",
+      "    ForEach(${1:items}) { ${2:item} in",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "List with ForEach"
+  },
+  "ForEach": {
+    "prefix": "foreach",
+    "body": [
+      "ForEach(${1:items}) { ${2:item} in",
+      "    $0",
+      "}"
+    ],
+    "description": "ForEach loop"
+  },
+  "ForEach Indexed": {
+    "prefix": "foreachindex",
+    "body": [
+      "ForEach(Array(${1:items}.enumerated()), id: \\.offset) { index, ${2:item} in",
+      "    $0",
+      "}"
+    ],
+    "description": "ForEach with index"
+  },
+  "NavigationStack": {
+    "prefix": "navstack",
+    "body": [
+      "NavigationStack {",
+      "    $0",
+      "    .navigationTitle(\"${1:Title}\")",
+      "}"
+    ],
+    "description": "NavigationStack container"
+  },
+  "NavigationLink": {
+    "prefix": "navlink",
+    "body": [
+      "NavigationLink {",
+      "    ${1:DestinationView}()",
+      "} label: {",
+      "    $0",
+      "}"
+    ],
+    "description": "NavigationLink with destination"
+  },
+  "Sheet": {
+    "prefix": "sheet",
+    "body": ".sheet(isPresented: $${1:isPresented}) {\n    $0\n}",
+    "description": "Sheet modifier"
+  },
+  "FullScreenCover": {
+    "prefix": "fullscreen",
+    "body": ".fullScreenCover(isPresented: $${1:isPresented}) {\n    $0\n}",
+    "description": "FullScreenCover modifier"
+  },
+  "Alert": {
+    "prefix": "alert",
+    "body": [
+      ".alert(\"${1:Title}\", isPresented: $${2:showAlert}) {",
+      "    Button(\"OK\", role: .cancel) { }",
+      "} message: {",
+      "    Text(\"${3:Message}\")",
+      "}"
+    ],
+    "description": "Alert modifier"
+  },
+  "Task": {
+    "prefix": "task",
+    "body": [
+      ".task {",
+      "    $0",
+      "}"
+    ],
+    "description": "Task modifier for async work"
+  },
+  "OnAppear": {
+    "prefix": "onappear",
+    "body": [
+      ".onAppear {",
+      "    $0",
+      "}"
+    ],
+    "description": "onAppear modifier"
+  },
+  "OnChange": {
+    "prefix": "onchange",
+    "body": [
+      ".onChange(of: ${1:value}) { oldValue, newValue in",
+      "    $0",
+      "}"
+    ],
+    "description": "onChange modifier (iOS 17+)"
+  },
+  "Button": {
+    "prefix": "button",
+    "body": [
+      "Button {",
+      "    $2",
+      "} label: {",
+      "    Text(\"${1:Label}\")",
+      "}"
+    ],
+    "description": "Button with action"
+  },
+  "Button Simple": {
+    "prefix": "buttonsimple",
+    "body": "Button(\"${1:Label}\") {\n    $0\n}",
+    "description": "Simple button"
+  },
+  "TextField": {
+    "prefix": "textfield",
+    "body": "TextField(\"${1:Placeholder}\", text: $${2:text})",
+    "description": "TextField"
+  },
+  "SecureField": {
+    "prefix": "securefield",
+    "body": "SecureField(\"${1:Placeholder}\", text: $${2:password})",
+    "description": "SecureField for passwords"
+  },
+  "Image SF Symbol": {
+    "prefix": "imgsf",
+    "body": "Image(systemName: \"${1:star.fill}\")",
+    "description": "SF Symbol image"
+  },
+  "AsyncImage": {
+    "prefix": "asyncimage",
+    "body": [
+      "AsyncImage(url: URL(string: ${1:urlString})) { phase in",
+      "    switch phase {",
+      "    case .empty:",
+      "        ProgressView()",
+      "    case .success(let image):",
+      "        image",
+      "            .resizable()",
+      "            .aspectRatio(contentMode: .fit)",
+      "    case .failure:",
+      "        Image(systemName: \"photo\")",
+      "    @unknown default:",
+      "        EmptyView()",
+      "    }",
+      "}"
+    ],
+    "description": "AsyncImage with phases"
+  },
+  "Async Function": {
+    "prefix": "asyncfunc",
+    "body": [
+      "func ${1:fetchData}() async ${2:throws} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Async function"
+  },
+  "Async Throwing Function": {
+    "prefix": "asyncthrows",
+    "body": [
+      "func ${1:fetchData}() async throws -> ${2:Type} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Async throwing function with return"
+  },
+  "Do Try Catch": {
+    "prefix": "dotry",
+    "body": [
+      "do {",
+      "    ${1:try await something()}",
+      "} catch {",
+      "    print(\"Error: \\(error)\")",
+      "    $0",
+      "}"
+    ],
+    "description": "Do-try-catch block"
+  },
+  "Guard Let": {
+    "prefix": "guardlet",
+    "body": [
+      "guard let ${1:unwrapped} = ${2:optional} else {",
+      "    ${3:return}",
+      "}",
+      "$0"
+    ],
+    "description": "Guard let unwrap"
+  },
+  "Guard Else": {
+    "prefix": "guardelse",
+    "body": [
+      "guard ${1:condition} else {",
+      "    ${2:return}",
+      "}",
+      "$0"
+    ],
+    "description": "Guard else"
+  },
+  "If Let": {
+    "prefix": "iflet",
+    "body": [
+      "if let ${1:unwrapped} = ${2:optional} {",
+      "    $0",
+      "}"
+    ],
+    "description": "If let unwrap"
+  },
+  "Struct": {
+    "prefix": "struct",
+    "body": [
+      "struct ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Struct definition"
+  },
+  "Struct Codable": {
+    "prefix": "structcodable",
+    "body": [
+      "struct ${1:Name}: Codable {",
+      "    let ${2:property}: ${3:Type}",
+      "    $0",
+      "}"
+    ],
+    "description": "Codable struct"
+  },
+  "Struct Identifiable": {
+    "prefix": "structid",
+    "body": [
+      "struct ${1:Name}: Identifiable {",
+      "    let id = UUID()",
+      "    $0",
+      "}"
+    ],
+    "description": "Identifiable struct"
+  },
+  "Enum": {
+    "prefix": "enum",
+    "body": [
+      "enum ${1:Name} {",
+      "    case ${2:case1}",
+      "    case ${3:case2}",
+      "    $0",
+      "}"
+    ],
+    "description": "Enum definition"
+  },
+  "Enum String": {
+    "prefix": "enumstring",
+    "body": [
+      "enum ${1:Name}: String, CaseIterable {",
+      "    case ${2:case1} = \"${3:value1}\"",
+      "    case ${4:case2} = \"${5:value2}\"",
+      "    $0",
+      "}"
+    ],
+    "description": "String enum"
+  },
+  "Class": {
+    "prefix": "class",
+    "body": [
+      "class ${1:Name} {",
+      "    init() {",
+      "        $0",
+      "    }",
+      "}"
+    ],
+    "description": "Class definition"
+  },
+  "Protocol": {
+    "prefix": "protocol",
+    "body": [
+      "protocol ${1:Name} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Protocol definition"
+  },
+  "Extension": {
+    "prefix": "ext",
+    "body": [
+      "extension ${1:Type} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Extension"
+  },
+  "Extension Protocol Conformance": {
+    "prefix": "extproto",
+    "body": [
+      "extension ${1:Type}: ${2:Protocol} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Extension with protocol conformance"
+  },
+  "Computed Property": {
+    "prefix": "computed",
+    "body": [
+      "var ${1:name}: ${2:Type} {",
+      "    $0",
+      "}"
+    ],
+    "description": "Computed property"
+  },
+  "Closure": {
+    "prefix": "closure",
+    "body": "{ ${1:params} in\n    $0\n}",
+    "description": "Closure"
+  },
+  "Completion Handler": {
+    "prefix": "completion",
+    "body": "completion: @escaping (${1:Result<${2:Type}, Error>}) -> Void",
+    "description": "Completion handler parameter"
+  },
+  "API Request": {
+    "prefix": "apirequest",
+    "body": [
+      "func ${1:fetchData}() async throws -> ${2:ResponseType} {",
+      "    guard let url = URL(string: \"${3:https://api.example.com/endpoint}\") else {",
+      "        throw URLError(.badURL)",
+      "    }",
+      "    ",
+      "    let (data, response) = try await URLSession.shared.data(from: url)",
+      "    ",
+      "    guard let httpResponse = response as? HTTPURLResponse,",
+      "          (200...299).contains(httpResponse.statusCode) else {",
+      "        throw URLError(.badServerResponse)",
+      "    }",
+      "    ",
+      "    return try JSONDecoder().decode(${2:ResponseType}.self, from: data)",
+      "}"
+    ],
+    "description": "Async API request function"
+  },
+  "Preview": {
+    "prefix": "preview",
+    "body": [
+      "#Preview {",
+      "    ${1:ViewName}()",
+      "}"
+    ],
+    "description": "SwiftUI Preview macro"
+  },
+  "Preview with Binding": {
+    "prefix": "previewbinding",
+    "body": [
+      "#Preview {",
+      "    @Previewable @State var ${1:value} = ${2:defaultValue}",
+      "    ${3:ViewName}(${4:binding}: $${1:value})",
+      "}"
+    ],
+    "description": "Preview with @Previewable State"
+  },
+  "Mark": {
+    "prefix": "mark",
+    "body": "// MARK: - ${1:Section}",
+    "description": "MARK comment"
+  },
+  "TODO": {
+    "prefix": "todo",
+    "body": "// TODO: ${1:Description}",
+    "description": "TODO comment"
+  },
+  "FIXME": {
+    "prefix": "fixme",
+    "body": "// FIXME: ${1:Description}",
+    "description": "FIXME comment"
+  },
+  "Print Debug": {
+    "prefix": "printd",
+    "body": "print(\"DEBUG: ${1:message} - \\(${2:value})\")",
+    "description": "Debug print statement"
+  },
+  "Main Actor": {
+    "prefix": "mainactor",
+    "body": "@MainActor",
+    "description": "@MainActor attribute"
+  },
+  "Main Actor Block": {
+    "prefix": "mainactorblock",
+    "body": [
+      "await MainActor.run {",
+      "    $0",
+      "}"
+    ],
+    "description": "MainActor.run block"
+  },
+  "Dispatch Main": {
+    "prefix": "dispatchmain",
+    "body": [
+      "DispatchQueue.main.async {",
+      "    $0",
+      "}"
+    ],
+    "description": "Dispatch to main queue"
+  },
+  "GeometryReader": {
+    "prefix": "geometry",
+    "body": [
+      "GeometryReader { geometry in",
+      "    $0",
+      "}"
+    ],
+    "description": "GeometryReader"
+  },
+  "Modifier": {
+    "prefix": "modifier",
+    "body": [
+      "struct ${1:Name}Modifier: ViewModifier {",
+      "    func body(content: Content) -> some View {",
+      "        content",
+      "            $0",
+      "    }",
+      "}"
+    ],
+    "description": "Custom ViewModifier"
+  },
+  "Animation": {
+    "prefix": "withanim",
+    "body": [
+      "withAnimation(${1:.easeInOut}) {",
+      "    $0",
+      "}"
+    ],
+    "description": "withAnimation block"
+  },
+  "Namespace": {
+    "prefix": "namespace",
+    "body": "@Namespace private var ${1:namespace}",
+    "description": "@Namespace for matched geometry"
+  },
+  "UserDefaults Get": {
+    "prefix": "userdefget",
+    "body": "UserDefaults.standard.${1:string}(forKey: \"${2:key}\")",
+    "description": "UserDefaults get value"
+  },
+  "UserDefaults Set": {
+    "prefix": "userdefset",
+    "body": "UserDefaults.standard.set(${1:value}, forKey: \"${2:key}\")",
+    "description": "UserDefaults set value"
+  }
+}
